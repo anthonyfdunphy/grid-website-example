@@ -1,2 +1,2 @@
 # Example Snippets
-HTML JS CSS
+This is a sandbox for learning different elements of javascript
