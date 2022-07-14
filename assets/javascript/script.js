@@ -1,18 +1,12 @@
-const inputKey = document.getElementById('inpKey')
-const inputValue = document.getElementById('inpVal')
-const submitButton = document.getElementById('submit-button')
+const inputs = document.querySelectorAll('.controls input');
 
-function writeToDiv(p1, p2){
-    document.getElementById('footer').innerText = `Key: ${p1} - Value: ${p2}`
+function handleUpdate(){
+    const suffix = this.dataset.sizing || '';
+    
+    document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    console.log(this.name);
+    console.log(this.value + suffix);
 }
 
-submitButton.addEventListener('click', () =>{
-    const key = inputKey.value
-    const value = inputValue.value
-
-    console.log(key)
-    console.log(value)
-
-    writeToDiv(key, value)
-})
-
+inputs.forEach(input => input.addEventListener('change', handleUpdate));
+inputs.forEach(input => input.addEventListener('mouseover', handleUpdate));

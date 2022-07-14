@@ -8,16 +8,23 @@
     <title>Test site to developing ideas</title>
 </head>
 <body>
+
+    <h2>Update CSS Variables with <span class="h1">JS</span></h2>
     
-    <div id="header">1</div>
-    <div id="content">
-        <fieldset>
-            <input id ="inpKey" type="text" placeholder="Enter Key">
-            <input id="inpVal" type="text" placeholder="Enter Value">
-            <button id="submit-button">Submit Data</button>
-        </fieldset>
+    <div class="controls">
+
+        <label for="spacing">Spacing: </label>
+        <input type="range" name="spacing" min="0" max="200" value="10" data-sizing="px">
+        
+        <label for="blur">Blur: </label>
+        <input type="range" name="blur" min="0" max="200" value="10" data-sizing="px">
+
+        <label for="base">Base Color</label>
+        <input type="color" name="base" value="#ffc600">
+
     </div>
-    <div id="footer"></div>
+
+    <img src="https://i.imgur.com/woLy7FMg.jpg">
 
     <script src="/assets/javascript/script.js"></script>
 
