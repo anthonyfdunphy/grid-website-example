@@ -6,11 +6,6 @@ const inventors = [
     { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
     { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
     { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
-    { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
-    { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
-    { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
-    { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
-    { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
 ];
 
 const people = [
@@ -23,17 +18,37 @@ const people = [
 
 
 // 1. FIlter the list of inventors for those who were born in the 1500's
-const fifteen = inventors.filter(function(inventor){
-    if(inventor.year >= 1500 & inventor.year <= 1600){
-        return true;
-    } else {
-        return false;
-    }
-});
+const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year <= 1600));
 
 console.table(fifteen);
 
 // 2. Give us an array of the inventory first and last names
 
-const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+const fullNames = inventors.map(inventor => `${inventor.first} + ${inventor.last}`)
 console.log(fullNames);
+
+// 3.Sort inventors by birthdate, oldest to youngest
+
+const ordered = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
+
+console.table(ordered)
+
+// 4. How many years did all the inventors live?
+
+const totalYears = inventors.reduce((total, inventor) => {
+    return total + (inventor.passed - inventor.year);
+}, 0);
+
+console.log(totalYears);
+
+// 5. Sort inventors by years lived
+
+const oldest = inventors.sort(function(a,b){
+    const lastGuy = a.passed - a.year;
+    const nextGuy = b.passed - b.year;
+    return lastGuy > nextGuy ? -1 : 1;
+});
+
+console.table(oldest);
+
+
