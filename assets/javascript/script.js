@@ -51,4 +51,20 @@ const oldest = inventors.sort(function(a,b){
 
 console.table(oldest);
 
+// 6.Create alist of Boulevards in Paris that contain 'de' anywhere in the name
+// https://en.wikipedia.org/wiki/Category:Boulevards_in_Parishttps://en.wikipedia.org/wiki/Category:Boulevards_in_Paris;
+
+const category = document.querySelector('.mw-category');
+const links = Array.from(category.querySelectorAll('a'));
+const de = links
+                .map(link => link.textContent)
+                .filter(streetName => streetName.includes('de'));
+
+// This is code to filter a website so that it shows only whats contained with DE in the name
+
+// pull information from the workmans website
+
+const workmansCat = document.querySelector('mw-category');
+const workLinks = workmansCat.querySelectorAll('list_entry');
+
 
